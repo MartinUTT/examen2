@@ -7,12 +7,12 @@ urlpatterns = [
     
     # Las 7 vistas del ToDO
     path('pendientes/ids/', views.pendientes_ids, name='pendientes_ids'),
-    path('pendientes/ids-titles/', views.pendientes_ids_titles, name='pendientes_ids_titles'),
+    path('pendientes/ids-titulos/', views.pendientes_ids_titulos, name='pendientes_ids_titulos'),
     path('pendientes/sin-resolver/', views.pendientes_sin_resolver, name='pendientes_sin_resolver'),
     path('pendientes/resueltos/', views.pendientes_resueltos, name='pendientes_resueltos'),
-    path('pendientes/ids-users/', views.pendientes_ids_users, name='pendientes_ids_users'),
-    path('pendientes/resueltos-users/', views.pendientes_resueltos_users, name='pendientes_resueltos_users'),
-    path('pendientes/sin-resolver-users/', views.pendientes_sin_resolver_users, name='pendientes_sin_resolver_users'),
+    path('pendientes/ids-usuarios/', views.pendientes_ids_usuarios, name='pendientes_ids_usuarios'),
+    path('pendientes/resueltos-usuarios/', views.pendientes_resueltos_users, name='pendientes_resueltos_users'),
+    path('pendientes/sin-resolver-usuarios/', views.pendientes_sin_resolver_users, name='pendientes_sin_resolver_users'),
     
     
 

@@ -20,7 +20,7 @@ def pendientes_ids(request):
     return render(request, 'core/pendientes_lista.html', context)
 
 # Vista 2: Lista de todos los pendientes (IDs y Titles)
-def pendientes_ids_titles(request):
+def pendientes_ids_titulos(request):
     pendientes = Pendiente.objects.all()
     context = {
         'pendientes': pendientes,
@@ -50,7 +50,7 @@ def pendientes_resueltos(request):
     return render(request, 'core/pendientes_lista.html', context)
 
 # Vista 5: Lista de todos los pendientes (IDs y userID)
-def pendientes_ids_users(request):
+def pendientes_ids_usuarios(request):
     pendientes = Pendiente.objects.all()
     context = {
         'pendientes': pendientes,
@@ -89,7 +89,7 @@ def crear_pendiente(request):
             pendiente.user = request.user
             pendiente.save()
             messages.success(request, 'Pendiente creado exitosamente.')
-            return redirect('pendientes_ids_titles')
+            return redirect('pendientes_ids_titulos')
     else:
         form = PendienteForm()
     
@@ -108,7 +108,7 @@ def editar_pendiente(request, pendiente_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Pendiente actualizado exitosamente.')
-            return redirect('pendientes_ids_titles')
+            return redirect('pendientes_ids_titulos')
     else:
         form = PendienteForm(instance=pendiente)
     
@@ -128,7 +128,7 @@ def marcar_resuelto(request, pendiente_id):
     estado = "resuelto" if pendiente.resuelto else "pendiente"
     messages.success(request, f'Pendiente marcado como {estado}.')
     
-    return redirect('pendientes_ids_titles')
+    return redirect('pendientes_ids_titulos')
 
 @login_required
 def crear_pendiente(request):
@@ -151,4 +151,4 @@ def crear_pendiente(request):
 def eliminar_pendiente(request, pendiente_id):
     pendiente = get_object_or_404(Pendiente, id=pendiente_id, user=request.user)
     pendiente.delete()
-    return redirect('pendientes_ids_titles') 
+    return redirect('pendientes_ids_titulos') 
